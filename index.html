@@ -103,6 +103,15 @@
   table.est td.r{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
   table.est tr.sum td{font-weight:600;background:var(--wood-soft)}
   .tablewrap{overflow-x:auto}
+  .decide{background:var(--need-bg);border:1px solid #EACDBE;padding:12px 18px;font-size:14px;margin:0 0 28px;line-height:1.9}
+  .decide .dl{display:block;font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--need);font-weight:700;margin-bottom:2px}
+  .decide a{color:var(--ink);font-weight:600;text-decoration:none;border-bottom:1px dotted var(--need);white-space:nowrap}
+  .decide a:hover{color:var(--need)}
+  .decide .sep{color:var(--need);margin:0 6px}
+  .track{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 8px}
+  .tstep{font-size:12.5px;padding:3px 12px;border-radius:999px;border:1px solid var(--line);color:var(--mut);background:#fff}
+  .tstep.done{background:var(--ok-bg);color:var(--ok);border-color:#CBDDBD}
+  .tstep.cur{background:var(--run-bg);color:var(--run);border-color:#E3CD9F;font-weight:700}
   footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:var(--mut);font-size:13.5px}
   @media(max-width:780px){
     .shell{flex-direction:column;gap:20px}
@@ -121,12 +130,17 @@
   <div class="brand">Дом в Парфенькино</div>
   <div class="brand-sub">каркасный барнхаус 12 × 8 · строим сами</div>
   <div class="g">
+    <div class="gh">Штаб</div>
     <a href="#now" data-p="now">Сейчас</a>
     <a href="#checklist" data-p="checklist">Чек-лист этапа</a>
     <a href="#news" data-p="news">Новости</a>
     <a href="#route" data-p="route">Маршрут</a>
+  </div>
+  <div class="g">
+    <div class="gh">Дом и участок</div>
     <a href="#house" data-p="house">О доме</a>
-    <a href="#plot" data-p="plot">Участок</a>
+    <a href="#plot" data-p="plot">Участок и посадка</a>
+    <a href="#plan" data-p="plan">Планировка</a>
   </div>
   <div class="g">
     <div class="gh">Конструктив</div>
@@ -151,6 +165,11 @@
 
 <main>
 
+<div class="decide"><span class="dl">Нужно решить</span>
+<a href="#roof">Крыша: А / Б / В′ — до 5 августа</a><span class="sep">·</span><a href="#walls">Стойки стен: 100 или 150 — до 25 июля</a><span class="sep">·</span><a href="#plan">Планировка v0.3 — 4 уточнения</a><span class="sep">·</span><a href="#power">Узнать кВт и 380 В по ТУ</a><span class="sep">·</span><a href="#checklist">Запустить закупку №1 «Пол»</a>
+</div>
+
+
 <section class="page" id="p-now">
   <div class="eyebrow">Штаб стройки · Клинский район</div>
   <h1>Сейчас: готовимся к обвязке</h1>
@@ -159,6 +178,9 @@
     <span class="chip count" id="cd">До ноября — считаем…</span>
     <span class="chip">Крыша — к 31 августа</span>
     <span class="chip">Обновлено 6 июля 2026</span>
+  </div>
+  <div class="track">
+    <span class="tstep done">Сваи ✓</span><span class="tstep cur">Проект</span><span class="tstep cur">Закупка №1</span><span class="tstep">Обвязка</span><span class="tstep">Платформа</span><span class="tstep">Стены</span><span class="tstep">Крыша</span><span class="tstep">Окна</span><span class="tstep">Инженерия</span><span class="tstep">Утепление</span><span class="tstep">Тепло</span><span class="tstep">Заезд 🎯</span>
   </div>
   <h2>Эта неделя, 7–13 июля</h2>
   <div class="card">
@@ -170,14 +192,7 @@
   <div class="crit"><b>10 августа — заказ окон и профлиста</b><span>Окна делают 2–4 недели, профлист режут в размер до недели. Без окон нет тёплого контура.</span></div>
   <div class="crit"><b>31 августа — крыша полностью закрыта</b><span>Наше требование к себе: каркас и кровля готовы до осенних дождей.</span></div>
   <div class="crit"><b>Октябрь — запуск тепла</b><span>Отделка внутри комфортна только в тёплом доме.</span></div>
-  <h2>Открытые вопросы</h2>
-  <ul class="plain">
-    <li>Крыша и потолок: А (плоский) / Б (скат до 3,6 м, фермы) / В′ (до конька, как на фото АМ.BARN) — разрезы и цифры на странице «Крыша и потолок»</li>
-    <li>Стойки стен: 100 мм (дешевле сейчас) или 150 мм (норма тепла, окупается за 5 лет)</li>
-    <li>Сколько киловатт выделено на участок и есть ли 380 В</li>
-    <li>Вода на юге участка — централь, колодец или скважина?</li>
-    <li>Какой торец получает панорамное остекление — восточный или западный?</li>
-  </ul>
+  
 </section>
 
 <section class="page" id="p-checklist">
@@ -292,6 +307,14 @@
 <text x="80" y="450" fill="#6E6A60" font-size="11.5">схема по ситуационному плану БТИ 2008, не в масштабе · привязки уточняются по факту</text>
 </svg><p class="dc">ЭСКИЗ-06 · План участка с посадкой дома (по ситуационному плану БТИ 2008)</p></div>
   <div class="card"><h3>Посадка — что зафиксировано</h3><p>Дом ставится параллельно скошенной северной границе с отступом 3,5 м от забора (норма — минимум 3 м, взят запас). Начало дома — примерно от точки перелома границы, дальше 12 м на восток. Свайное поле уже закручено по этой посадке.</p><p class="why">Проверить: расстояние от нового дома до старого — оба деревянные, по противопожарным нормам между ними должно быть не меньше 15 м. По схеме выходит близко к границе нормы — замерить рулеткой по факту.</p></div>
+  
+  
+</section>
+
+<section class="page" id="p-plan">
+  <div class="eyebrow">Дом и участок · <span class="tag t-need">4 уточнения</span></div>
+  <h1>Планировка</h1>
+  <p class="lede">Черновик v0.3 — собран по описанию заказчика от 6 июля. После четырёх уточнений станет рабочим листом v1.0 с привязкой перегородок к сетке.</p>
   <div class="draw"><svg style="min-width:560px;width:100%;display:block" viewBox="0 0 680 505" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,BlinkMacSystemFont,sans-serif">
 <text x="60" y="24" fill="#24221D" font-size="14">ЧЕРНОВИК v0.3 — по описанию заказчика · север сверху</text>
 <rect x="60" y="50" width="585" height="385" fill="none" stroke="#2C2C2A" stroke-width="6"/>
@@ -334,6 +357,11 @@
 <text x="330" y="501" fill="#6E6A60" font-size="12">12 000</text>
 </svg><p class="dc">ЭСКИЗ-07 · Планировка v0.3 — по описанию заказчика от 6 июля</p></div>
   <div class="card"><h3>Планировка v0.3 — редакция заказчика</h3><p>Северный ряд, слева направо: спальня 3 в северо-западном углу → котельная → санузел с ванной. Восточный торец: спальня 1 и спальня 2, каждая около 4 м. Прихожая шириной 1,8 м слева от нижней спальни, вход с юга. Всё юго-западное пространство — гостиная-столовая с кухней ~4 м вдоль стен котельной и санузла. Остекление — юго-западный угол (запад + юг).</p><p class="why">Проверяем на семейном совете: гостиная при трёх спальнях получается ≈31 м² (в референсе 39); глубина северного ряда принята 3,0 м; санузел один, совмещённый (~8,7 м² — влезает ванна, душ и стиральная колонна). Все цифры — черновые, уточняются на рабочем чертеже.</p></div>
+  <div class="card"><h3>Что уточняем для v1.0</h3>
+  <p>1 · Глубина северного ряда (спальня 3 / котельная / санузел) — принято 3,0 м, так?<br>
+  2 · Гостиная ≈31 м² при трёх спальнях — принимаете, или отыгрываем метры (ряд 2,7 м)?<br>
+  3 · Санузел — один совмещённый с ванной, как сказано? Или ванная + отдельный туалет?<br>
+  4 · Дверь спальни 3 — из гостиной-кухонной зоны (геометрия другого не даёт) — ок?</p></div>
 </section>
 
 <section class="page" id="p-found">
@@ -937,7 +965,7 @@
 
 <script>
 (function(){
-  var pages=['now','checklist','news','route','house','plot','found','floor','walls','part','roof','power','water','sewer','heat','budget'];
+  var pages=['now','checklist','news','route','house','plot','plan','found','floor','walls','part','roof','power','water','sewer','heat','budget'];
   function show(p){
     if(pages.indexOf(p)<0)p='now';
     pages.forEach(function(x){
