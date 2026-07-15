@@ -103,6 +103,8 @@
   table.est td.r{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
   table.est tr.sum td{font-weight:600;background:var(--wood-soft)}
   .tablewrap{overflow-x:auto}
+  .dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-left:7px;vertical-align:1px}
+  .d-ok{background:#3E7A34}.d-run{background:#B0762A}.d-need{background:#B5482A}
   .decide{background:var(--need-bg);border:1px solid #EACDBE;padding:12px 18px;font-size:14px;margin:0 0 28px;line-height:1.9}
   .decide .dl{display:block;font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--need);font-weight:700;margin-bottom:2px}
   .decide a{color:var(--ink);font-weight:600;text-decoration:none;border-bottom:1px dotted var(--need);white-space:nowrap}
@@ -132,44 +134,47 @@
   <div class="g">
     <div class="gh">Штаб</div>
     <a href="#now" data-p="now">Сейчас</a>
-    <a href="#checklist" data-p="checklist">Чек-лист этапа</a>
     <a href="#news" data-p="news">Новости</a>
     <a href="#route" data-p="route">Маршрут</a>
+  </div>
+  <div class="g">
+    <div class="gh">Действия</div>
+    <a href="#buy" data-p="buy">График покупок<span class="dot d-need"></span></a>
+    <a href="#checklist" data-p="checklist">Чек-лист этапа<span class="dot d-run"></span></a>
   </div>
   <div class="g">
     <div class="gh">Дом и участок</div>
     <a href="#house" data-p="house">О доме</a>
     <a href="#plot" data-p="plot">Участок и посадка</a>
-    <a href="#plan" data-p="plan">Планировка</a>
-    <a href="#shed" data-p="shed">Навес и вода</a>
-    <a href="#doc" data-p="doc">Проект (КР)</a>
+    <a href="#plan" data-p="plan">Планировка<span class="dot d-ok"></span></a>
+    <a href="#doc" data-p="doc">Документация (КР)<span class="dot d-ok"></span></a>
+    <a href="#shed" data-p="shed">Навес и вода<span class="dot d-run"></span></a>
   </div>
   <div class="g">
     <div class="gh">Конструктив</div>
-    <a href="#found" data-p="found">Фундамент и обвязка</a>
-    <a href="#floor" data-p="floor">Пол</a>
+    <a href="#found" data-p="found">Фундамент и обвязка<span class="dot d-run"></span></a>
+    <a href="#floor" data-p="floor">Пол<span class="dot d-run"></span></a>
     <a href="#walls" data-p="walls">Внешние стены</a>
     <a href="#part" data-p="part">Перегородки</a>
-    <a href="#roof" data-p="roof">Крыша и потолок</a>
+    <a href="#roof" data-p="roof">Крыша и потолок<span class="dot d-ok"></span></a>
   </div>
   <div class="g">
     <div class="gh">Инженерия</div>
-    <a href="#power" data-p="power">Электричество</a>
-    <a href="#water" data-p="water">Вода</a>
+    <a href="#power" data-p="power">Электричество<span class="dot d-need"></span></a>
+    <a href="#water" data-p="water">Вода<span class="dot d-need"></span></a>
     <a href="#sewer" data-p="sewer">Канализация</a>
     <a href="#heat" data-p="heat">Отопление и воздух</a>
   </div>
   <div class="g">
     <div class="gh">Деньги</div>
     <a href="#budget" data-p="budget">Бюджет</a>
-    <a href="#buy" data-p="buy">График покупок</a>
   </div>
 </nav>
 
 <main>
 
-<div class="decide"><span class="dl">Нужно решить</span>
-<a href="#doc">Подписать акт FrameDome + оплатить остаток 34 250</a><span class="sep">·</span><a href="#doc">Разослать ведомость окон (42,8 м²) оконщикам</a><span class="sep">·</span><a href="#plan">Планировка v0.3 — 4 уточнения</a><span class="sep">·</span><a href="#power">Узнать кВт и 380 В по ТУ</a><span class="sep">·</span><a href="#checklist">Запустить закупку №1 «Пол»</a>
+<div class="decide"><span class="dl">Сделать сейчас</span>
+<a href="#buy">Заказать доску волны №1 — сегодня</a><span class="sep">·</span><a href="#buy">Разослать ведомость окон (42,8 м²)</a><span class="sep">·</span><a href="#power">Узнать кВт и 380 В по ТУ</a><span class="sep">·</span><a href="#water">Источник воды на юге — что это?</a>
 </div>
 
 
@@ -180,6 +185,7 @@
   <div class="chips">
     <span class="chip count" id="cd">До ноября — считаем…</span>
     <span class="chip">Крыша — к 31 августа</span>
+    <span class="chip">Потрачено: 196 тыс. (сваи + проект)</span>
     <span class="chip">Обновлено 6 июля 2026</span>
   </div>
   <div class="track">
@@ -190,9 +196,14 @@
     <p><span class="tag t-run">В работе</span>&nbsp; Запуск закупки №1 «Пол» — спецификация готова, обзвон поставщиков. Не зависит от нерешённых вопросов.</p>
     <p><span class="tag t-run">В работе</span>&nbsp; Рабочие чертежи: план обвязки, пирог пола и узел крепления готовы — смотрите вкладку «Чертежи» на страницах «Пол» и «Фундамент».</p>
     <p><span class="tag t-ok">Решено 6.07</span>&nbsp; КРЫША: наслонные стропила + коньковая LVL-балка, потолок до конька — как у АМ.BARN (вариант В′) · стойки 150×50 · фасад «короед» — 2027.</p>
-    <p><span class="tag t-ok">Готово 16.07</span>&nbsp; Проект проверен: все наши правки вошли (печь, козырёк, окна востока, юг в пол, профнастил). Принимаем: акт + остаток 34 250 ₽. Строим перекрытие по КР (лаги шаг 417).</p>
+    <p><span class="tag t-ok">Готово 16.07</span>&nbsp; Проект утверждён и оплачен полностью (68 500 ₽). Все правки вошли. Стройка идёт по КР FrameDome — рабочие чертежи платформы: листы 17–24.</p>
     <p><span class="tag t-need">Решить</span>&nbsp; Планировка v0.3 — 4 уточнения (закроем на эскизном этапе с проектировщиком).</p>
   </div>
+  <div class="card"><h3>Три дела на сегодня</h3>
+    <p>1 · <a href="#buy">Заказать доску волны №1</a> — звонок поставщику, счёт, доставка 2–4 дня (без неё стройка стоит)<br>
+    2 · <a href="#buy">Разослать ведомость окон</a> в 2–3 конторы — изготовление 3–4 недели, дедлайн для сентябрьского монтажа<br>
+    3 · <a href="#power">Узнать выделенные кВт и наличие 380 В</a> — один звонок в сетевую, развязывает отопление и ввод</p></div>
+
   <h2>Критические даты</h2>
   <div class="crit"><b>10 августа — заказ окон и профлиста</b><span>Окна делают 2–4 недели, профлист режут в размер до недели. Без окон нет тёплого контура.</span></div>
   <div class="crit"><b>31 августа — крыша полностью закрыта</b><span>Наше требование к себе: каркас и кровля готовы до осенних дождей.</span></div>
@@ -229,6 +240,7 @@
   <div class="eyebrow">Журнал</div>
   <h1>Новости стройки</h1>
   <p class="lede">Что нового и какие решения приняты — сверху свежее. История по каждой теме — на странице темы, вкладка «История».</p>
+  <div class="news"><div class="nd">16 июля 2026 · вечер</div><h3>Проект оплачен полностью — и штаб стал удобнее</h3><p>Акт подписан, остаток 34 250 ₽ переведён — рабочая документация FrameDome теперь наша целиком (итог 68 500 ₽). Заодно перестроен штаб: в меню появились точки-статусы (зелёная — решено, янтарная — в работе, красная — требует действия), оперативные списки собраны в группу «Действия», а страница «Сейчас» стала дашбордом с тремя делами на сегодня и счётчиком потраченного.</p></div>
   <div class="news"><div class="nd">16 июля 2026</div><h3>Проект проверен и принят: все правки вошли</h3><p>Обновлённый эскизник подтвердил каждую нашу правку: печь с площадкой, закладная под стеклянный козырёк, окна на восточном торце спален, две секции в пол на юге гостиной, профнастил. Финальная ведомость — 15 окон на 42,81 м² и 6 дверей — уходит оконным компаниям за коммерческими предложениями. Важное из сверки: цокольное перекрытие в КР решено с шагом лаг 417 мм и блокингом — строим по проекту, наши ранние эскизы платформы уходят в архив.</p></div>
   <div class="news"><div class="nd">15 июля 2026</div><h3>Пришёл рабочий проект: 57 листов КР + машинный раскрой всей доски</h3><p>FrameDome сдал конструктивный раздел: пошаговые схемы сборки всех 11 стеновых панелей, узлы, стропильная система с LVL-балкой 400×100 над гостиной и прогонами 250×150 над спальнями, площадка под печь. Отдельным файлом — раскрой: весь дом разложен по 6-метровым хлыстам (~401 шт, 21,4 м³) с отходами 1,6–4,5 %. Теперь закупки №2 и №3 считаются не по нашим прикидкам, а по заводскому раскрою. На проверку проекта — 3 дня, до 18 июля.</p></div>
   <div class="news"><div class="nd">6 июля 2026 · поздний вечер</div><h3>Крыша решена: LVL-балка и потолок до конька. Проект заказываем у FrameDome</h3><p>Финальное конструктивное решение: наслонные стропила с коньковой LVL-балкой и несущей внутренней стеной — как в референсе АМ.BARN, с открытой балкой в гостиной. Рабочий проект каркаса делает проектировщик FrameDome (500 ₽/м², ≈48 тыс., ~12 рабочих дней): ТЗ заполнено и уходит с приложениями. Также решены стойки 150×50 и фасад-«короед» (2027).</p></div>
@@ -1199,6 +1211,7 @@
   <table class="est">
     <tr><th>Волна закупки</th><th>Дерево</th><th style="text-align:right">Итого, ₽</th></tr>
     <tr><td>Фундамент: 30 винтовых свай 108×4, L=2,5 м — ФАКТ, оплачено</td><td>—</td><td class="r">127 500</td></tr>
+    <tr><td>Рабочий проект ЭП + КР (FrameDome, договор 26-10) — ФАКТ, оплачен полностью 16.07</td><td>—</td><td class="r">68 500</td></tr>
     <tr><td>№1 «Пол» (к 14 июля, спецификация — на странице «Пол»): доска 7,5 м³ + OSB-22 + стекловата 18 м³ + сетка, плёнки, крепёж, тарпаулин</td><td>≈128 000</td><td class="r">≈350 000</td></tr>
     <tr><td>№2 «Стены» (к 1 августа): доска 2,8 м³ + OSB-12 + крепёж</td><td>≈48 000</td><td class="r">≈105 000</td></tr>
     <tr><td>№3 «Крыша» (к 11 августа, по спецификации проекта FrameDome): стропильная доска + LVL-балка + мембрана + профлист + крепёж</td><td>≈105 000</td><td class="r">≈335 000</td></tr>
